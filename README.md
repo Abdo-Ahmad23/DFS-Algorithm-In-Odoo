@@ -1,2 +1,22 @@
-# DFS-Algorithm-In-Odoo
-An Odoo module that manages hierarchical knowledge categories using DFS recursion to prevent circular relationships.
+# Odoo Knowledge Category
+
+A custom Odoo module for hierarchical knowledge categories.
+
+## Features
+- Parent/Child categories
+- Prevent circular hierarchy
+- Dynamic parent filtering
+- DFS recursion to detect descendants
+
+## Example
+
+Allowed:
+
+Programming
+└── Python
+
+Not Allowed:
+
+Programming
+└── Python
+    └── Programming
