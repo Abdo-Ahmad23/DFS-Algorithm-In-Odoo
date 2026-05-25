@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <!-- Tree View -->
+    <record id="knowledge_category_tree_view" model="ir.ui.view">
+        <field name="name">knowledge.category.tree</field>
+        <field name="model">knowledge.category</field>
+        <field name="arch" type="xml">
+
+            <tree>
+                <field name="name"/>
+                <field name="parent_id"/>
+            </tree>
+
+        </field>
+    </record>
+
+
+    <!-- Form View -->
+    <record id="knowledge_category_form_view" model="ir.ui.view">
+        <field name="name">knowledge.category.form</field>
+        <field name="model">knowledge.category</field>
+        <field name="arch" type="xml">
+
+            <form>
+
+                <sheet>
+
+                    <group>
+
+                        <field name="name"/>
+                        <field name="available_parent_ids" invisible="1"/>
+
+                        <field name="parent_id"
+                               options="{'no_create': True}"/>
+
+                    </group>
+
+                </sheet>
+
+            </form>
+
+        </field>
+    </record>
+
+
+    <!-- Search View -->
+    <record id="knowledge_category_search_view" model="ir.ui.view">
+        <field name="name">knowledge.category.search</field>
+        <field name="model">knowledge.category</field>
+        <field name="arch" type="xml">
+
+            <search>
+
+                <field name="name"/>
+                <field name="parent_id"/>
+<!--                <field name="available_parent_ids" invisible="1"/>-->
+
+            </search>
+
+        </field>
+    </record>
+
+
+    <!-- Action -->
+    <record id="knowledge_category_action" model="ir.actions.act_window">
+        <field name="name">Knowledge Categories</field>
+        <field name="res_model">knowledge.category</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Root Menu -->
+    <menuitem
+        id="knowledge_base_root_menu"
+        name="Knowledge Base"
+        sequence="1"
+    />
+
+
+    <!-- Category Menu -->
+    <menuitem
+        id="knowledge_category_menu"
+        name="Categories"
+        parent="knowledge_base_root_menu"
+        action="knowledge_category_action"
+        sequence="1"
+    />
+
+</odoo>
